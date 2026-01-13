@@ -71,3 +71,15 @@ curl --location 'http://localhost:8080/api/v1/sms/subscription' \
     "sender": "48700800999",
     "message": "START"
 }'
+```
+### 2. Test Phishing Detection (Protected User)
+Send a message with a suspicious link to the protected number.  ```bash
+```bash
+curl --location 'http://localhost:8080/api/v1/sms/process' \
+--header 'Content-Type: application/json' \
+--data '{
+    "sender": "234100200300",
+    "recipient": "48700800999",
+    "message": "Security Alert! Verify your account at: [http://m-bonk.pl.ng/login](http://m-bonk.pl.ng/login)"
+}'
+```
